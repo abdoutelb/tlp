@@ -1,6 +1,6 @@
 {
   "name": "tlp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "track time and log tasks via terminal",
   "main": "./lib/index.js",
   "bin": {
