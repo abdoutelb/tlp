@@ -13,28 +13,41 @@ A simple commandLine helps you manage and log your tasks focus on ONLY on task.
 npm install -g tlp
 ```
  
-# Commands for Todo App
+# Commands for TLP App
+
 
 1. start / s [to start new task]
-e.g
-"tlp s new task"
+
+```sh
+tlp start new task
+```
+
+
 
 2. stop / t [to stop the current task]
-e.g
-"tlp stop"
+
+```sh
+tlp stop 
+```
 
 3. status / st [to view all tasks]
-e.g
-"tlp status"
+
+```sh
+tlp status 
+```
  
 4. report / r [to generate report-Soon-]
-e.g
-"tlp report"
+
+```sh
+tlp report 
+```
  
  
- 5. help / h [to check the help for commands]
- e.g
- "tlp h"
+5. help / h [to check the help for commands]
+
+```sh
+tlp help 
+```
 
 ## ⚖️ License
 

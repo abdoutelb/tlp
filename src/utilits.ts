@@ -4,10 +4,9 @@ import { Dates } from './dates';
 const dateModule = new Dates();
 const figlet = require('figlet');
 
-
 export class Utilits {
-    usage () {
-        const usageText = `
+  usage() {
+    const usageText = `
             tlp helps you manage and log your tasks focus on ONLY on task.
           
             usage:
@@ -21,33 +20,28 @@ export class Utilits {
               report: used to show all previous tasks's time[soon]
               help[h]:     used to print the usage guide
             `;
-      
-        console.log(usageText);
-      };
 
-     header () {
-  
-        console.log(
-          chalk.yellow(
-            figlet.textSync('TLP-CLI', { horizontalLayout: 'full' })
-          )
-        );
-      }
+    console.log(usageText);
+  }
+
+  header() {
+    console.log(chalk.yellow(figlet.textSync('TLP-CLI', { horizontalLayout: 'full' })));
+  }
 
   stopTask(num?: number) {
-    let tasksList = conf.get('task-list');
+    const tasksList = conf.get('task-list');
 
     if (!tasksList) {
       console.log(chalk.blueBright(`There is No tasks started before.`));
       return;
     }
 
-    tasksList.forEach((task: any, index: number) => {
-      if (!task.done) {
+    tasksList.forEach((currentTask: any, index: number) => {
+      if (!currentTask.done) {
         tasksList[index].done = true;
-        tasksList[index].finish = dateModule.getDiffrenceFromNow(task.time);
+        tasksList[index].finish = dateModule.getDiffrenceFromNow(currentTask.time);
         conf.set('task-list', tasksList);
-        console.log(`Task done after ${dateModule.getDiffrenceFromNow(task.time)} minutes.`);
+        console.log(`Task done after ${dateModule.getDiffrenceFromNow(currentTask.time)} minutes.`);
       }
     });
   }
@@ -76,18 +70,17 @@ export class Utilits {
   }
 
   addTask(task: string[]) {
-    let tasksList = conf.get('task-list');
-    let text = task.join(' ');
-    if (!tasksList) {
-      tasksList = [];
-    }
+    const tasksList = conf.get('task-list') || [];
+    const text = task.join(' ');
 
-    tasksList.forEach((task: any, index: number) => {
-      if (!task.done) {
+    tasksList.forEach((currentTask: any, index: number) => {
+      if (!currentTask.done) {
         tasksList[index].done = true;
-        tasksList[index].finish = dateModule.getDiffrenceFromNow(task.time);
+        tasksList[index].finish = dateModule.getDiffrenceFromNow(currentTask.time);
         conf.set('task-list', tasksList);
-        console.log(chalk.blueBright(`Previous task ends now after ${dateModule.getDiffrenceFromNow(task.time)} minutes.`));
+        console.log(
+          chalk.blueBright(`Previous task ends now after ${dateModule.getDiffrenceFromNow(currentTask.time)} minutes.`),
+        );
       }
     });
 

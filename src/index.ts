@@ -4,7 +4,6 @@ const util = new Utilits();
 
 const args = process.argv;
 
-
 switch (args[2]) {
   case 'start':
   case 's':
