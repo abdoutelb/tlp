@@ -1,6 +1,6 @@
 {
   "name": "tlp",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "track time and log tasks via terminal",
   "main": "./lib/index.js",
   "bin": {
@@ -12,7 +12,7 @@
     "create": "npm run build && npm run test",
     "go": "npm run build && npm run start",
     "build": "rm -rf lib/* && tsc -p .",
-    "local": "npm run build && rm -rf /home/weber/.nvm/versions/node/v14.4.0/bin/tlp && npm i -g .",
+    "local": "npm run build && npm i -g .",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
     "test": "jest --config jestconfig.json",
     "format": "prettier --write \"src/**/*.ts\"",
